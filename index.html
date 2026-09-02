@@ -1,273 +1,630 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Royal Cuts Barber Shop</title>
+<title>ROYAL CUTS | Premium Barber Shop</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
-      line-height: 1.6;
-    }
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#090909;
+  color:#fff;
+}
 
-    header {
-      background: #000;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid #333;
-    }
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding:20px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(9,9,9,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #242424;
+  z-index:1000;
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #d4af37;
-    }
+.logo{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:2px;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-weight: bold;
-    }
+.logo span{
+  color:#d4af37;
+}
 
-    nav a:hover {
-      color: #d4af37;
-    }
+nav a{
+  color:#ddd;
+  text-decoration:none;
+  margin-left:28px;
+  font-size:14px;
+  font-weight:bold;
+  transition:.3s;
+}
 
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      background:
-        linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.8)),
-        radial-gradient(circle at center, #3a3a3a, #000);
-    }
+nav a:hover{
+  color:#d4af37;
+}
 
-    .hero h1 {
-      font-size: 60px;
-      margin-bottom: 15px;
-    }
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:120px 7% 70px;
+  background:
+    radial-gradient(circle at 80% 30%,#443816 0,transparent 30%),
+    radial-gradient(circle at 20% 80%,#242424 0,transparent 35%),
+    #090909;
+}
 
-    .hero h1 span {
-      color: #d4af37;
-    }
+.hero-content{
+  max-width:800px;
+}
 
-    .hero p {
-      font-size: 20px;
-      color: #ccc;
-      margin-bottom: 30px;
-    }
+.badge{
+  display:inline-block;
+  border:1px solid #d4af37;
+  color:#d4af37;
+  padding:8px 16px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:2px;
+  margin-bottom:25px;
+}
 
-    .btn {
-      display: inline-block;
-      background: #d4af37;
-      color: #000;
-      padding: 14px 30px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: .3s;
-    }
+.hero h1{
+  font-size:clamp(48px,8vw,88px);
+  line-height:1;
+  margin-bottom:25px;
+}
 
-    .btn:hover {
-      background: white;
-      transform: translateY(-3px);
-    }
+.hero h1 span{
+  color:#d4af37;
+}
 
-    section {
-      padding: 80px 8%;
-      text-align: center;
-    }
+.hero p{
+  max-width:600px;
+  color:#aaa;
+  font-size:19px;
+  line-height:1.8;
+  margin-bottom:35px;
+}
 
-    section h2 {
-      font-size: 40px;
-      margin-bottom: 40px;
-      color: #d4af37;
-    }
+.buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
+.btn{
+  display:inline-block;
+  padding:15px 28px;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:bold;
+  transition:.3s;
+}
 
-    .card {
-      background: #1d1d1d;
-      padding: 35px 20px;
-      border-radius: 10px;
-      border: 1px solid #333;
-      transition: .3s;
-    }
+.primary{
+  background:#d4af37;
+  color:#080808;
+}
 
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: #d4af37;
-    }
+.primary:hover{
+  background:#fff;
+  transform:translateY(-3px);
+}
 
-    .card h3 {
-      color: #d4af37;
-      margin-bottom: 12px;
-      font-size: 24px;
-    }
+.secondary{
+  border:1px solid #555;
+  color:#fff;
+}
 
-    .price {
-      font-size: 25px;
-      margin-top: 15px;
-      font-weight: bold;
-    }
+.secondary:hover{
+  border-color:#d4af37;
+  color:#d4af37;
+}
 
-    .about {
-      background: #181818;
-    }
+section{
+  padding:100px 7%;
+}
 
-    .about p {
-      max-width: 750px;
-      margin: auto;
-      color: #ccc;
-      font-size: 18px;
-    }
+.section-title{
+  text-align:center;
+  margin-bottom:55px;
+}
 
-    .contact {
-      background: #000;
-    }
+.section-title small{
+  color:#d4af37;
+  letter-spacing:3px;
+  font-weight:bold;
+}
 
-    .contact p {
-      margin: 10px 0;
-      color: #ccc;
-    }
+.section-title h2{
+  font-size:44px;
+  margin-top:10px;
+}
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #0a0a0a;
-      color: #888;
-    }
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
 
-    @media (max-width: 800px) {
-      .hero h1 {
-        font-size: 42px;
-      }
+.card{
+  background:#141414;
+  border:1px solid #292929;
+  border-radius:14px;
+  padding:35px;
+  transition:.3s;
+}
 
-      nav {
-        display: none;
-      }
+.card:hover{
+  transform:translateY(-8px);
+  border-color:#d4af37;
+}
 
-      .services {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+.icon{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.card h3{
+  font-size:23px;
+  margin-bottom:12px;
+}
+
+.card p{
+  color:#999;
+  line-height:1.7;
+}
+
+.price{
+  margin-top:25px;
+  color:#d4af37;
+  font-size:25px;
+  font-weight:bold;
+}
+
+.about{
+  background:#111;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.about-box{
+  background:#191919;
+  padding:45px;
+  border-radius:15px;
+  border:1px solid #292929;
+}
+
+.about-box h3{
+  color:#d4af37;
+  font-size:28px;
+  margin-bottom:20px;
+}
+
+.about-box p{
+  color:#aaa;
+  line-height:1.9;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.stat{
+  padding:30px;
+  background:#0b0b0b;
+  border:1px solid #292929;
+  border-radius:12px;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  font-size:36px;
+  color:#d4af37;
+}
+
+.stat span{
+  color:#999;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.gallery-item{
+  height:250px;
+  border-radius:14px;
+  background:
+    linear-gradient(135deg,#252525,#080808);
+  border:1px solid #292929;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:70px;
+  transition:.3s;
+}
+
+.gallery-item:hover{
+  transform:scale(1.03);
+  border-color:#d4af37;
+}
+
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.review{
+  background:#141414;
+  border:1px solid #292929;
+  border-radius:14px;
+  padding:30px;
+}
+
+.stars{
+  color:#d4af37;
+  font-size:20px;
+  margin-bottom:18px;
+}
+
+.review p{
+  color:#aaa;
+  line-height:1.8;
+  margin-bottom:20px;
+}
+
+.review strong{
+  color:#fff;
+}
+
+.booking{
+  background:
+    radial-gradient(circle at center,#332b15,transparent 55%),
+    #0b0b0b;
+  text-align:center;
+}
+
+.booking h2{
+  font-size:48px;
+  margin-bottom:18px;
+}
+
+.booking p{
+  color:#aaa;
+  margin-bottom:30px;
+  font-size:18px;
+}
+
+.contact-box{
+  max-width:650px;
+  margin:auto;
+  background:#141414;
+  padding:40px;
+  border:1px solid #292929;
+  border-radius:15px;
+}
+
+.contact-line{
+  padding:15px;
+  border-bottom:1px solid #292929;
+  color:#ccc;
+}
+
+.contact-line:last-child{
+  border-bottom:0;
+}
+
+footer{
+  text-align:center;
+  padding:30px 20px;
+  background:#050505;
+  color:#777;
+  border-top:1px solid #222;
+}
+
+footer span{
+  color:#d4af37;
+}
+
+@media(max-width:850px){
+
+  header{
+    padding:18px 5%;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .hero{
+    padding-left:5%;
+    padding-right:5%;
+  }
+
+  section{
+    padding:75px 5%;
+  }
+
+  .services,
+  .reviews,
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:52px;
+  }
+
+  .booking h2{
+    font-size:38px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">ROYAL CUTS</div>
+<header>
+  <div class="logo">ROYAL <span>CUTS</span></div>
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-
-  <section class="hero" id="home">
-    <div>
-      <h1>Look Sharp. <span>Feel Royal.</span></h1>
-
-      <p>
-        Premium haircuts, beard styling and grooming for modern men.
-      </p>
-
-      <a href="#contact" class="btn">Book Appointment</a>
-    </div>
-  </section>
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#services">SERVICES</a>
+    <a href="#about">ABOUT</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+</header>
 
 
-  <section id="services">
+<section class="hero" id="home">
+  <div class="hero-content">
 
-    <h2>Our Services</h2>
+    <div class="badge">PREMIUM MEN'S GROOMING</div>
 
-    <div class="services">
-
-      <div class="card">
-        <h3>Classic Haircut</h3>
-        <p>Professional haircut with modern styling.</p>
-        <div class="price">$15</div>
-      </div>
-
-      <div class="card">
-        <h3>Beard Styling</h3>
-        <p>Sharp beard trimming and professional shaping.</p>
-        <div class="price">$10</div>
-      </div>
-
-      <div class="card">
-        <h3>Hair + Beard</h3>
-        <p>Complete grooming package for a fresh look.</p>
-        <div class="price">$22</div>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="about" id="about">
-
-    <h2>About Us</h2>
+    <h1>
+      LOOK SHARP.<br>
+      <span>FEEL ROYAL.</span>
+    </h1>
 
     <p>
-      Welcome to Royal Cuts Barber Shop. We believe every man deserves
-      to look confident and feel great. Our professional barbers provide
-      high-quality haircuts, beard styling and grooming in a comfortable
-      environment.
+      More than a haircut. A premium grooming experience
+      designed for men who care about their style.
     </p>
 
-  </section>
+    <div class="buttons">
+      <a href="#contact" class="btn primary">BOOK APPOINTMENT</a>
+      <a href="#services" class="btn secondary">VIEW SERVICES</a>
+    </div>
+
+  </div>
+</section>
 
 
-  <section class="contact" id="contact">
+<section id="services">
 
-    <h2>Book Your Appointment</h2>
+  <div class="section-title">
+    <small>WHAT WE DO</small>
+    <h2>Premium Services</h2>
+  </div>
 
-    <p>📍 Main Street, Your City</p>
-    <p>📞 +92 300 1234567</p>
-    <p>✉️ royalcuts@example.com</p>
+  <div class="services">
+
+    <div class="card">
+      <div class="icon">✂️</div>
+      <h3>Signature Haircut</h3>
+      <p>
+        Precision haircut, styling and finishing
+        tailored to your look.
+      </p>
+      <div class="price">$20</div>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧔</div>
+      <h3>Beard Grooming</h3>
+      <p>
+        Professional beard shaping, trimming and
+        clean finishing.
+      </p>
+      <div class="price">$15</div>
+    </div>
+
+    <div class="card">
+      <div class="icon">👑</div>
+      <h3>Royal Package</h3>
+      <p>
+        Haircut, beard grooming and premium styling
+        in one complete package.
+      </p>
+      <div class="price">$30</div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="about" id="about">
+
+  <div class="section-title">
+    <small>ABOUT ROYAL CUTS</small>
+    <h2>Built Around Your Style</h2>
+  </div>
+
+  <div class="about-grid">
+
+    <div class="about-box">
+      <h3>Where Style Meets Confidence</h3>
+
+      <p>
+        At Royal Cuts, every detail matters. Our goal is to
+        give every client a fresh, confident and professional
+        look. From classic cuts to modern styles, our barbers
+        focus on precision, comfort and quality.
+      </p>
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <strong>5+</strong>
+        <span>Years Experience</span>
+      </div>
+
+      <div class="stat">
+        <strong>2K+</strong>
+        <span>Happy Clients</span>
+      </div>
+
+      <div class="stat">
+        <strong>100%</strong>
+        <span>Style Focused</span>
+      </div>
+
+      <div class="stat">
+        <strong>5★</strong>
+        <span>Premium Service</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="gallery">
+
+  <div class="section-title">
+    <small>OUR STYLE</small>
+    <h2>Barber Gallery</h2>
+  </div>
+
+  <div class="gallery">
+
+    <div class="gallery-item">✂️</div>
+    <div class="gallery-item">💈</div>
+    <div class="gallery-item">🧔</div>
+    <div class="gallery-item">👑</div>
+    <div class="gallery-item">💇</div>
+    <div class="gallery-item">🔥</div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <div class="section-title">
+    <small>CLIENT LOVE</small>
+    <h2>What Clients Say</h2>
+  </div>
+
+  <div class="reviews">
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>
+        Amazing service and attention to detail.
+        I finally found a barber who understands my style.
+      </p>
+      <strong>— Alex R.</strong>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>
+        Clean shop, professional service and an
+        excellent haircut every time.
+      </p>
+      <strong>— Daniel M.</strong>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>
+        The Royal Package is worth every penny.
+        Definitely coming back again.
+      </p>
+      <strong>— James K.</strong>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="booking" id="contact">
+
+  <h2>Ready For A Fresh Look?</h2>
+
+  <p>
+    Book your next appointment and experience Royal Cuts.
+  </p>
+
+  <div class="contact-box">
+
+    <div class="contact-line">
+      📍 Your City, Pakistan
+    </div>
+
+    <div class="contact-line">
+      📞 +92 300 1234567
+    </div>
+
+    <div class="contact-line">
+      🕐 Mon – Sun: 10:00 AM – 10:00 PM
+    </div>
 
     <br>
 
-    <a class="btn" href="tel:+923001234567">
-      Call Now
+    <a href="tel:+923001234567" class="btn primary">
+      CALL TO BOOK
     </a>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <footer>
-    © 2026 Royal Cuts Barber Shop. All Rights Reserved.
-  </footer>
+<footer>
+  © 2026 <span>ROYAL CUTS</span> — Premium Barber Shop
+</footer>
 
 </body>
 </html>
+```
